@@ -49,3 +49,4 @@ export default tseslint.config({
 })
 ```
 # palliative-frontend
+# palliative-frontend
