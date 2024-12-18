@@ -1,0 +1,353 @@
+[
+    {
+      "id": 1,
+      "name": "Wheelchair",
+      "quantity": 10,
+      "description": "A lightweight folding wheelchair for patient mobility.",
+      "category": "Mobility Equipment"
+    },
+    {
+      "id": 2,
+      "name": "Hospital Bed",
+      "quantity": 5,
+      "description": "Adjustable hospital bed with side rails and mattress.",
+      "category": "Furniture"
+    },
+    {
+      "id": 3,
+      "name": "Oxygen Concentrator",
+      "quantity": 8,
+      "description": "Portable oxygen concentrator for respiratory support.",
+      "category": "Medical Equipment"
+    },
+    {
+      "id": 4,
+      "name": "Commode Chair",
+      "quantity": 15,
+      "description": "Adjustable commode chair for patient convenience.",
+      "category": "Furniture"
+    },
+    {
+      "id": 5,
+      "name": "Adult Diapers",
+      "quantity": 200,
+      "description": "Disposable adult diapers for incontinence management.",
+      "category": "Personal Care"
+    },
+    {
+      "id": 6,
+      "name": "Walking Stick",
+      "quantity": 25,
+      "description": "Adjustable walking stick with ergonomic handle.",
+      "category": "Mobility Equipment"
+    },
+    {
+      "id": 7,
+      "name": "Pulse Oximeter",
+      "quantity": 20,
+      "description": "Device to measure oxygen saturation and pulse rate.",
+      "category": "Medical Equipment"
+    },
+    {
+      "id": 8,
+      "name": "Blood Pressure Monitor",
+      "quantity": 10,
+      "description": "Digital blood pressure monitor with cuff.",
+      "category": "Medical Equipment"
+    },
+    {
+      "id": 9,
+      "name": "IV Stand",
+      "quantity": 12,
+      "description": "Stainless steel IV stand with adjustable height.",
+      "category": "Furniture"
+    },
+    {
+      "id": 10,
+      "name": "Nebulizer",
+      "quantity": 6,
+      "description": "Portable nebulizer for respiratory treatments.",
+      "category": "Medical Equipment"
+    },
+    {
+      "id": 11,
+      "name": "Thermometer",
+      "quantity": 30,
+      "description": "Digital thermometer for accurate temperature readings.",
+      "category": "Medical Equipment"
+    },
+    {
+      "id": 12,
+      "name": "Suction Machine",
+      "quantity": 4,
+      "description": "Portable suction machine for airway management.",
+      "category": "Medical Equipment"
+    },
+    {
+      "id": 13,
+      "name": "Glucometer",
+      "quantity": 15,
+      "description": "Device for measuring blood sugar levels.",
+      "category": "Medical Equipment"
+    },
+    {
+      "id": 14,
+      "name": "Bedside Table",
+      "quantity": 8,
+      "description": "Adjustable bedside table for patient use.",
+      "category": "Furniture"
+    },
+    {
+      "id": 15,
+      "name": "Anti-Decubitus Mattress",
+      "quantity": 5,
+      "description": "Air-filled mattress to prevent bedsores.",
+      "category": "Furniture"
+    },
+    {
+      "id": 16,
+      "name": "Disposable Gloves",
+      "quantity": 500,
+      "description": "Latex gloves for hygiene and safety.",
+      "category": "Personal Care"
+    },
+    {
+      "id": 17,
+      "name": "Face Masks",
+      "quantity": 300,
+      "description": "Disposable face masks for infection control.",
+      "category": "Personal Care"
+    },
+    {
+      "id": 18,
+      "name": "Catheters",
+      "quantity": 100,
+      "description": "Urinary catheters in various sizes.",
+      "category": "Medical Supplies"
+    },
+    {
+      "id": 19,
+      "name": "Urine Bags",
+      "quantity": 150,
+      "description": "Disposable urine bags with drainage tube.",
+      "category": "Medical Supplies"
+    },
+    {
+      "id": 20,
+      "name": "Feeding Tubes",
+      "quantity": 50,
+      "description": "Nasogastric feeding tubes for patient nutrition.",
+      "category": "Medical Supplies"
+    },
+    {
+      "id": 21,
+      "name": "Hot Water Bag",
+      "quantity": 20,
+      "description": "Rubber hot water bag for pain relief.",
+      "category": "Personal Care"
+    },
+    {
+      "id": 22,
+      "name": "Cold Packs",
+      "quantity": 25,
+      "description": "Reusable cold packs for swelling and pain.",
+      "category": "Personal Care"
+    },
+    {
+      "id": 23,
+      "name": "Hand Sanitizers",
+      "quantity": 100,
+      "description": "Alcohol-based hand sanitizers for hygiene.",
+      "category": "Personal Care"
+    },
+    {
+      "id": 24,
+      "name": "Towels",
+      "quantity": 50,
+      "description": "Soft cotton towels for patient use.",
+      "category": "Personal Care"
+    },
+    {
+      "id": 25,
+      "name": "Pill Organizers",
+      "quantity": 30,
+      "description": "Weekly pill organizers for medication management.",
+      "category": "Medical Supplies"
+    },
+    {
+      "id": 26,
+      "name": "Syringes",
+      "quantity": 300,
+      "description": "Disposable syringes in various sizes.",
+      "category": "Medical Supplies"
+    },
+    {
+      "id": 27,
+      "name": "Bandages",
+      "quantity": 200,
+      "description": "Adhesive bandages for wound care.",
+      "category": "Medical Supplies"
+    },
+    {
+      "id": 28,
+      "name": "Stethoscope",
+      "quantity": 10,
+      "description": "Dual-head stethoscope for auscultation.",
+      "category": "Medical Equipment"
+    },
+    {
+      "id": 29,
+      "name": "Medicine Trolley",
+      "quantity": 6,
+      "description": "Stainless steel trolley for medication delivery.",
+      "category": "Furniture"
+    },
+    {
+      "id": 30,
+      "name": "Intravenous Cannulas",
+      "quantity": 200,
+      "description": "IV cannulas in various sizes.",
+      "category": "Medical Supplies"
+    },
+    {
+      "id": 31,
+      "name": "Disinfectant Wipes",
+      "quantity": 400,
+      "description": "Disposable wipes for surface disinfection.",
+      "category": "Personal Care"
+    },
+    {
+      "id": 32,
+      "name": "Bed Linens",
+      "quantity": 40,
+      "description": "Washable bed linens for hospital beds.",
+      "category": "Furniture"
+    },
+    {
+      "id": 33,
+      "name": "Pill Crusher",
+      "quantity": 15,
+      "description": "Device for crushing pills for easy administration.",
+      "category": "Medical Supplies"
+    },
+    {
+      "id": 34,
+      "name": "Surgical Masks",
+      "quantity": 250,
+      "description": "Disposable surgical masks for healthcare workers.",
+      "category": "Personal Care"
+    },
+    {
+      "id": 35,
+      "name": "Overbed Table",
+      "quantity": 8,
+      "description": "Height-adjustable overbed table for patient use.",
+      "category": "Furniture"
+    },
+    {
+      "id": 36,
+      "name": "Elastic Bandages",
+      "quantity": 100,
+      "description": "Stretchable bandages for compression therapy.",
+      "category": "Medical Supplies"
+    },
+    {
+      "id": 37,
+      "name": "Head Support Pillows",
+      "quantity": 20,
+      "description": "Ergonomic pillows for patient comfort.",
+      "category": "Furniture"
+    },
+    {
+      "id": 38,
+      "name": "Nasal Cannulas",
+      "quantity": 150,
+      "description": "Disposable nasal cannulas for oxygen therapy.",
+      "category": "Medical Supplies"
+    },
+    {
+      "id": 39,
+      "name": "IV Drip Sets",
+      "quantity": 200,
+      "description": "IV drip sets for fluid administration.",
+      "category": "Medical Supplies"
+    },
+    {
+      "id": 40,
+      "name": "Portable Commode",
+      "quantity": 12,
+      "description": "Foldable commode for easy mobility.",
+      "category": "Furniture"
+    },
+    {
+      "id": 41,
+      "name": "First Aid Kits",
+      "quantity": 20,
+      "description": "Comprehensive first aid kits for emergencies.",
+      "category": "Medical Supplies"
+    },
+    {
+      "id": 42,
+      "name": "Crutches",
+      "quantity": 15,
+      "description": "Adjustable aluminum crutches for mobility support.",
+      "category": "Mobility Equipment"
+    },
+    {
+      "id": 43,
+      "name": "Bed Alarms",
+      "quantity": 10,
+      "description": "Sensors to monitor patient movement.",
+      "category": "Medical Equipment"
+    },
+    {
+      "id": 44,
+      "name": "Patient Hoist",
+      "quantity": 5,
+      "description": "Mechanical hoist for lifting patients.",
+      "category": "Mobility Equipment"
+    },
+    {
+      "id": 45,
+      "name": "Tissue Boxes",
+      "quantity": 100,
+      "description": "Soft tissue boxes for patient use.",
+      "category": "Personal Care"
+    },
+    {
+      "id": 46,
+      "name": "IV Fluids",
+      "quantity": 150,
+      "description": "Bags of saline and other IV fluids.",
+      "category": "Medical Supplies"
+    },
+    {
+      "id": 47,
+      "name": "Patient Gowns",
+      "quantity": 30,
+      "description": "Washable patient gowns for hospital use.",
+      "category": "Personal Care"
+    },
+    {
+      "id": 48,
+      "name": "Safety Goggles",
+      "quantity": 20,
+      "description": "Protective goggles for healthcare workers.",
+      "category": "Personal Care"
+    },
+    {
+      "id": 49,
+      "name": "CPAP Machine",
+      "quantity": 3,
+      "description": "Continuous Positive Airway Pressure machine for sleep apnea.",
+      "category": "Medical Equipment"
+    },
+    {
+      "id": 50,
+      "name": "Shower Chair",
+      "quantity": 10,
+      "description": "Adjustable shower chair for bathing assistance.",
+      "category": "Furniture"
+    }
+  ]
+  

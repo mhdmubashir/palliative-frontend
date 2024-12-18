@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
-  TextField, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Dialog, DialogActions, DialogContent, DialogTitle, CircularProgress, Alert
+  TextField, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Dialog, DialogActions, DialogContent, DialogTitle, CircularProgress, Alert,
+  Pagination
 } from '@mui/material';
 import { apiAddItem, apiDeleteItem, apiGetItems, apiUpdateItem, baseUrl } from '../constants/apiConstants';
+import { tableThStyle } from '../constants/stylesText';
 
 interface StockItem {
   id: number;
@@ -16,6 +18,11 @@ interface StockItem {
 
 const InventoryStockManage: React.FC = () => {
   const [items, setItems] = useState<StockItem[]>([]);
+  //srcj
+  const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
   const [newItem, setNewItem] = useState<StockItem>({
     id: 0,
     name: '',
@@ -30,92 +37,130 @@ const InventoryStockManage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch items from the backend
+  //FetchJson
   useEffect(() => {
-    setLoading(true);
-    axios.get(baseUrl + apiGetItems)
-      .then(response => {
-        setItems(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        if (error.response) {
-          setError(`Error: ${error.response.data.message || error.response.statusText}`);
-        } else if (error.request) {
-          setError('Error: No response from server');
-        } else {
-          setError(`Error: ${error.message}`);
-        }
-        setLoading(false);
-      });
+    const fetchData = async () => {
+      const response = await fetch("./stockAndAssets.json"); 
+      const jsonData = await response.json();
+      setItems(jsonData);
+    };
+
+    fetchData();
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setNewItem({ ...newItem, [name]: value });
+  //searh
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+    setCurrentPage(1);
   };
+//filteer
+  const filteredItems = items.filter(
+    (item) =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.category.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (editing && editItem) {
-      // Update the item
-      axios.put(baseUrl + apiUpdateItem + editItem.id, newItem)
-        .then(response => {
-          setItems(items.map(item =>
-            item.id === editItem.id ? { ...item, ...newItem } : item
-          ));
-          setEditing(false);
-          setEditItem(null);
-          setOpenDialog(false);
-        })
-        .catch(error => setError('There was an error updating the item.'));
-    } else {
-      // Add a new item
-      axios.post(baseUrl + apiAddItem, newItem)
-        .then(response => {
-          setItems([...items, response.data]);
-          setOpenDialog(false);
-        })
-        .catch(error => setError('There was an error adding the item.'));
-    }
-    setNewItem({
-      id: 0,
-      name: '',
-      quantity: 0,
-      description: '',
-      category: '',
-      expirationDate: '',
-    });
-  };
+  //pagnate
+  const paginatedItems = filteredItems.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
-  const handleEdit = (item: StockItem) => {
-    setNewItem(item);
-    setEditItem(item);
-    setEditing(true);
-    setOpenDialog(true);
-  };
 
-  const handleDelete = (id: number) => {
-    axios.delete(baseUrl + apiDeleteItem + id)
-      .then(() => {
-        setItems(items.filter(item => item.id !== id));
-      })
-      .catch(error => setError('There was an error deleting the item.'));
-  };
+  // Fetch items from the backend
+  // useEffect(() => {
+  //   setLoading(true);
+  //   axios.get(baseUrl + apiGetItems)
+  //     .then(response => {
+  //       setItems(response.data);
+  //       setLoading(false);
+  //     })
+  //     .catch(error => {
+  //       if (error.response) {
+  //         setError(`Error: ${error.response.data.message || error.response.statusText}`);
+  //       } else if (error.request) {
+  //         setError('Error: No response from server');
+  //       } else {
+  //         setError(`Error: ${error.message}`);
+  //       }
+  //       setLoading(false);
+  //     });
+  // }, []);
+
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value } = e.target;
+  //   setNewItem({ ...newItem, [name]: value });
+  // };
+
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   if (editing && editItem) {
+  //     // Update the item
+  //     axios.put(baseUrl + apiUpdateItem + editItem.id, newItem)
+  //       .then(response => {
+  //         setItems(items.map(item =>
+  //           item.id === editItem.id ? { ...item, ...newItem } : item
+  //         ));
+  //         setEditing(false);
+  //         setEditItem(null);
+  //         setOpenDialog(false);
+  //       })
+  //       .catch(error => setError('There was an error updating the item.'));
+  //   } else {
+  //     // Add a new item
+  //     axios.post(baseUrl + apiAddItem, newItem)
+  //       .then(response => {
+  //         setItems([...items, response.data]);
+  //         setOpenDialog(false);
+  //       })
+  //       .catch(error => setError('There was an error adding the item.'));
+  //   }
+  //   setNewItem({
+  //     id: 0,
+  //     name: '',
+  //     quantity: 0,
+  //     description: '',
+  //     category: '',
+  //     expirationDate: '',
+  //   });
+  // };
+
+  // const handleEdit = (item: StockItem) => {
+  //   setNewItem(item);
+  //   setEditItem(item);
+  //   setEditing(true);
+  //   setOpenDialog(true);
+  // };
+
+  // const handleDelete = (id: number) => {
+  //   axios.delete(baseUrl + apiDeleteItem + id)
+  //     .then(() => {
+  //       setItems(items.filter(item => item.id !== id));
+  //     })
+  //     .catch(error => setError('There was an error deleting the item.'));
+  // };
 
   return (
     <div style={{ padding: '2rem', backgroundColor: '#f9fafb', marginLeft: "250px" }}>
-      <h2 style={{ textAlign: 'left', marginBottom: '2rem' }}>Inventory Management</h2>
-
-      {/* Add Item Button */}
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => setOpenDialog(true)}
-        style={{ marginBottom: '2rem', display: 'block', margin: '0 auto' }}
-      >
-        Add New Item
-      </Button>
+       
+       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+        <h2>Inventory Management</h2>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => alert('Open Add Item Dialog')}
+        >
+          Add New Item
+        </Button>
+      </div>
+      <TextField
+        label="Search Items"
+        variant="outlined"
+        fullWidth
+        onChange={handleSearch}
+        style={{ marginBottom: '1rem' }}
+      />
+     
 <br />
       {/* Display error message if there's an error */}
       {error && <Alert severity="error" style={{ marginBottom: '1rem' }}>{error}</Alert>}
@@ -140,12 +185,12 @@ const InventoryStockManage: React.FC = () => {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Item Name</TableCell>
-                <TableCell>Quantity</TableCell>
-                <TableCell>Description</TableCell>
-                <TableCell>Category</TableCell>
-                <TableCell>Expiration Date</TableCell>
-                <TableCell>Actions</TableCell>
+                <TableCell style={tableThStyle}>Item Name</TableCell>
+                <TableCell style={tableThStyle}>Quantity</TableCell>
+                <TableCell style={tableThStyle}>Description</TableCell>
+                <TableCell style={tableThStyle}>Category</TableCell>
+                <TableCell style={tableThStyle}>Expiration Date</TableCell>
+                <TableCell style={tableThStyle}>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -155,12 +200,12 @@ const InventoryStockManage: React.FC = () => {
                   <TableCell>{item.quantity}</TableCell>
                   <TableCell>{item.description}</TableCell>
                   <TableCell>{item.category}</TableCell>
-                  <TableCell>{item.expirationDate}</TableCell>
+                  <TableCell>{item.expirationDate} N/a</TableCell>
                   <TableCell>
                     <Button
                       variant="outlined"
                       color="primary"
-                      onClick={() => handleEdit(item)}
+                     // onClick={() => handleEdit(item)}
                       style={{ marginRight: '0.5rem' }}
                     >
                       Edit
@@ -168,7 +213,7 @@ const InventoryStockManage: React.FC = () => {
                     <Button
                       variant="outlined"
                       color="secondary"
-                      onClick={() => handleDelete(item.id)}
+                    //  onClick={() => handleDelete(item.id)}
                     >
                       Delete
                     </Button>
@@ -180,8 +225,18 @@ const InventoryStockManage: React.FC = () => {
         </TableContainer>
       )}
 
+<div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+        <Pagination
+          count={Math.ceil(filteredItems.length / itemsPerPage)}
+          page={currentPage}
+          onChange={(e, page) => setCurrentPage(page)}
+          color="primary"
+        />
+      </div>
+      
+
       {/* Dialog for Adding/Editing Item */}
-      <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
+      {/* <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
         <DialogTitle>{editing ? 'Edit Item' : 'Add Item'}</DialogTitle>
         <DialogContent>
           <form onSubmit={handleSubmit}>
@@ -243,7 +298,8 @@ const InventoryStockManage: React.FC = () => {
             </DialogActions>
           </form>
         </DialogContent>
-      </Dialog>
+      </Dialog> */}
+     
     </div>
   );
 };

@@ -10,6 +10,7 @@ const Dashboard: React.FC = () => {
             <h2>Welcome to the Palliative Care Dashboard</h2>
 
          <div>
+            
             <Card />
          </div>
         </div>
