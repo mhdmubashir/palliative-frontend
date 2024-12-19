@@ -42,7 +42,7 @@ const PatientManagement: React.FC = () => {
   const itemsPerPage = 5;
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [selectedPatient, setSelectedPatient] = useState(null);
+  //const [selectedPatient, setSelectedPatient] = useState(null);
 
 
   useEffect(() => {
@@ -80,13 +80,13 @@ const PatientManagement: React.FC = () => {
   );
 
 
-  const handleRowClick = (patient:any) => {
-    setSelectedPatient(patient);
-  };
+  // const handleRowClick = (patient:any) => {
+  //   setSelectedPatient(patient);
+  // };
 
-  const handleClosePopup = () => {
-    setSelectedPatient(null);
-  };
+  // const handleClosePopup = () => {
+  //   setSelectedPatient(null);
+  // };
 
   return (
     <div style={{ padding: '2rem', backgroundColor: '#f9fafb', marginLeft: "250px" }}>
@@ -139,7 +139,9 @@ const PatientManagement: React.FC = () => {
             <TableBody>
               {paginatedPatients.map((patient) => (
 
-                <TableRow key={patient.patient_id} onClick={()=> handleRowClick(patient)} style={{cursor : 'pointer'}}>
+                <TableRow key={patient.patient_id}
+                 //onClick={()=> handleRowClick(patient)} style={{cursor : 'pointer'}}
+                 >
                   <TableCell>{patient.first_name}</TableCell>
                   <TableCell>{patient.last_name}</TableCell>
                   <TableCell>{patient.gender}</TableCell>
@@ -172,10 +174,10 @@ const PatientManagement: React.FC = () => {
 
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
         <Pagination
-          count={Math.ceil(filteredPatients.length / itemsPerPage)}
-          page={currentPage}
-          onChange={(e, page) => setCurrentPage(page)}
-          color="primary"
+          // count={Math.ceil(filteredPatients.length / itemsPerPage)}
+          // page={currentPage}
+          // onChange={(e, page) => setCurrentPage(page)}
+          // color="primary"
         />
       </div>
       

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import {
-  TextField, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Dialog, DialogActions, DialogContent, DialogTitle, CircularProgress, Alert,
-  Pagination
+  TextField, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,
+  // Dialog, DialogActions, DialogContent, DialogTitle, CircularProgress, Alert,
+  //Pagination
 } from '@mui/material';
-import { apiAddItem, apiDeleteItem, apiGetItems, apiUpdateItem, baseUrl } from '../constants/apiConstants';
+// import { apiAddItem, apiDeleteItem, apiGetItems, apiUpdateItem, baseUrl } from '../constants/apiConstants';
 import { tableThStyle } from '../constants/stylesText';
 
 interface StockItem {
@@ -19,23 +20,23 @@ interface StockItem {
 const InventoryStockManage: React.FC = () => {
   const [items, setItems] = useState<StockItem[]>([]);
   //srcj
-  const [searchTerm, setSearchTerm] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  // const [searchTerm, setSearchTerm] = useState('');
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const itemsPerPage = 5;
 
-  const [newItem, setNewItem] = useState<StockItem>({
-    id: 0,
-    name: '',
-    quantity: 0,
-    description: '',
-    category: '',
-    expirationDate: '',
-  });
-  const [editing, setEditing] = useState<boolean>(false);
-  const [editItem, setEditItem] = useState<StockItem | null>(null);
-  const [openDialog, setOpenDialog] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  // const [newItem, setNewItem] = useState<StockItem>({
+  //   id: 0,
+  //   name: '',
+  //   quantity: 0,
+  //   description: '',
+  //   category: '',
+  //   expirationDate: '',
+  // });
+  // const [editing, setEditing] = useState<boolean>(false);
+  // const [editItem, setEditItem] = useState<StockItem | null>(null);
+  // const [openDialog, setOpenDialog] = useState<boolean>(false);
+  // const [loading, setLoading] = useState<boolean>(false);
+  // const [error, setError] = useState<string | null>(null);
 
   //FetchJson
   useEffect(() => {
@@ -49,22 +50,22 @@ const InventoryStockManage: React.FC = () => {
   }, []);
 
   //searh
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-    setCurrentPage(1);
-  };
+  // const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setSearchTerm(e.target.value);
+  //   setCurrentPage(1);
+  // };
 //filteer
-  const filteredItems = items.filter(
-    (item) =>
-      item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.category.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // const filteredItems = items.filter(
+  //   (item) =>
+  //     item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //     item.category.toLowerCase().includes(searchTerm.toLowerCase())
+  // );
 
   //pagnate
-  const paginatedItems = filteredItems.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+  // const paginatedItems = filteredItems.slice(
+  //   (currentPage - 1) * itemsPerPage,
+  //   currentPage * itemsPerPage
+  // );
 
 
   // Fetch items from the backend
@@ -157,30 +158,37 @@ const InventoryStockManage: React.FC = () => {
         label="Search Items"
         variant="outlined"
         fullWidth
-        onChange={handleSearch}
+       // onChange={handleSearch}
         style={{ marginBottom: '1rem' }}
       />
      
 <br />
       {/* Display error message if there's an error */}
-      {error && <Alert severity="error" style={{ marginBottom: '1rem' }}>{error}</Alert>}
+      {
+      // error && <Alert severity="error" style={{ marginBottom: '1rem' }}>{error}</Alert>
+      }
 
       {/* Loading indicator */}
-      {loading && (
-        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <CircularProgress />
-        </div>
-      )}
+      {
+      // loading && (
+      //   <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+      //     <CircularProgress />
+      //   </div>
+      // )
+      }
 
       {/* No data available message */}
-      {items.length === 0 && !loading && !error && (
-        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <Alert severity="info">No items available. Please add some items.</Alert>
-        </div>
-      )}
+      {
+      // items.length === 0 && !loading && !error && (
+      //   <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+      //     <Alert severity="info">No items available. Please add some items.</Alert>
+      //   </div>
+      // )
+      }
 
       {/* Stock Table */}
-      {!loading && items.length > 0 && (
+      {
+      // !loading && items.length > 0 && (
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
@@ -223,16 +231,17 @@ const InventoryStockManage: React.FC = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      )}
+      // )
+      }
 
 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
-        <Pagination
+        {/* <Pagination
           count={Math.ceil(filteredItems.length / itemsPerPage)}
           page={currentPage}
           onChange={(e, page) => setCurrentPage(page)}
           color="primary"
-        />
-      </div>
+        /> */}
+   </div>
       
 
       {/* Dialog for Adding/Editing Item */}
